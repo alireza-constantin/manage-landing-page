@@ -91,6 +91,12 @@ body {
   line-height: 1.5;
 }
 
+@media (min-width: 50em) {
+  body {
+    overflow: auto;
+  }
+}
+
 /* A elements that don't have a class get default styles */
 a:not([class]) {
   text-decoration-skip-ink: auto;
@@ -230,6 +236,7 @@ svg {
   }
 }
 
+
 /* general styling */
 body {
   font-size: var(--fs-body);
@@ -240,6 +247,7 @@ body {
 
 /* Buttons */
 .button {
+  display: inline-flex;
   cursor: pointer;
   border: none;
   border-radius: 100vmax;
@@ -266,4 +274,116 @@ body {
 .button[data-type="inverted"]:focus-visible {
   color: var(--clr-accent-300);
   background-color: var(--clr-neutral-100);
+}
+
+.display-sm-none {
+  display: none;
+}
+
+@media (min-width: 50em) {
+  .display-sm-none {
+    display: inline-flex;
+  }
+}
+
+/* Navigation */
+.primary-header {
+  margin-top: var(--size-700);
+}
+
+.nav-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mobile-nav-toggle {
+  display: none;
+}
+
+.nav-list {
+  font-size: var(--fs-nav);
+  display: flex;
+  gap: clamp(var(--size-300), 5vw, var(--size-700));
+  font-weight: var(--fw-semi-bold);
+}
+
+.nav-list a {
+  text-decoration: none;
+  color: var(--clr-primary-400);
+}
+
+.nav-list a:hover,
+.nav-list a:focus-visible {
+  color: var(--clr-accent-400);
+}
+
+@media (max-width: 50em) {
+  .primary-navigation {
+    display: none;
+    position: fixed;
+    inset: 7rem var(--size-500) auto;
+    padding: var(--size-700);
+    max-width: 30rem;
+    margin-left: auto;
+    background: var(--clr-neutral-100);
+    border-radius: var(--size-100);
+    box-shadow: 0 0 0 0.2em rgb(0 0 0 / 0.05);
+    animation: showModal 700ms ease forwards;
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+
+  @keyframes showModal {
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+
+  .primary-header[data-overlay]::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+
+    background-image: linear-gradient(rgb(0 0 0 / 0), rgb(0 0 0 / 0.8));
+  }
+
+  /* if it wasn't gradient you could do something like this */
+  /* 
+    .primary-navigation { 
+      box-shadow: 0 0 0 100vmax rgba(0, 0, 0 / 0.125)
+    }
+
+    and you had a nice shadow behind modal easy peasy
+  */
+
+  .nav-list {
+    display: grid;
+    gap: var(--size-600);
+    text-align: center;
+    font-weight: var(--fw-bold);
+
+  }
+
+
+  .primary-navigation[data-visible] {
+    display: block;
+
+  }
+
+  .mobile-nav-toggle {
+    cursor: pointer;
+    display: block;
+    background-color: transparent;
+    border: 0;
+    padding: 0.5em;
+    z-index: 100;
+  }
+
+  .mobile-nav-toggle .icon-close {
+    display: none;
+  }
 }
