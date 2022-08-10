@@ -237,6 +237,20 @@ p[data-width='wide'] {
   gap: 1.5rem;
 }
 
+.align-items-centre {
+  align-items: center;
+}
+
+.align-self-end-md {
+  justify-self: end;
+}
+
+@media (max-width: 50em) {
+  .align-self-end-md {
+    justify-self: center;
+  }
+}
+
 @media (min-width: 50em) {
   .even-columns {
     grid-auto-flow: column;
@@ -402,5 +416,29 @@ body {
 
   .mobile-nav-toggle .icon-close {
     display: none;
+  }
+}
+
+
+.cta {
+  position: relative;
+  isolation: isolate;
+}
+
+.cta::before {
+  content: '';
+  position: absolute;
+  background-image: url('images/bg-tablet-pattern.svg'),
+    url('images/bg-tablet-pattern.svg');
+  background-position: -12rem -5rem, 60rem -40rem;
+  opacity: 0.1;
+  background-repeat: no-repeat;
+  inset: 0;
+  z-index: -1;
+}
+
+@media (max-width: 50em) {
+  .cta {
+    text-align: center;
   }
 }
