@@ -127,6 +127,14 @@ svg {
   }
 }
 
+p:not([class]) {
+  opacity: 0.6;
+  max-width: 35ch;
+}
+
+p[data-width='wide'] {
+  max-width: 43ch;
+}
 
 /* Util classes */
 
