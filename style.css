@@ -226,7 +226,7 @@ svg {
 
 .even-columns {
   display: grid;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 
 @media (min-width: 50em) {
@@ -234,6 +234,15 @@ svg {
     grid-auto-flow: column;
     grid-auto-columns: 1fr;
   }
+}
+
+
+:where(.flow > :not(:first-child)) {
+  margin-top: var(--flow-spacer, 2.5rem);
+}
+
+:where(.flow[data-spacing="tight"] > :not(:first-child)) {
+  margin-top: var(--flow-spacer, 1em);
 }
 
 
