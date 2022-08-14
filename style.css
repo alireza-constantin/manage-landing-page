@@ -420,6 +420,46 @@ body {
 }
 
 
+/* footer */
+.footer {
+  --logo-color: var(--clr-neutral-100)
+}
+
+
+.footer-nav {
+  columns: 2;
+}
+
+.footer-nav a {
+  text-decoration: none;
+  color: var(--clr-neutral-100)
+}
+
+.footer-nav a:where(:hover, :focus) {
+  color: var(--clr-accent-400);
+}
+
+.social-list {
+  display: flex;
+  gap: var(--size-300)
+}
+
+.social-icon {
+  width: var(--size-600);
+  fill: var(--clr-neutral-100);
+  aspect-ratio: 1;
+}
+
+.social-list a:where(:hover, :focus) .social-icon {
+  fill: var(--clr-accent-400);
+}
+
+@media (min-width: 50em) {
+  .social-icon {
+    width: var(--size-500);
+  }
+}
+
 .cta {
   position: relative;
   isolation: isolate;
