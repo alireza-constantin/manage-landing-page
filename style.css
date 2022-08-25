@@ -136,7 +136,11 @@ p[data-width='wide'] {
   max-width: 43ch;
 }
 
+
 /* Util classes */
+
+
+
 
 .text-primary-400 {
   color: var(--clr-primary-400);
@@ -296,6 +300,10 @@ body {
   background-color: var(--clr-neutral-100);
 }
 
+button[data-shadow="none"] {
+  box-shadow: none;
+}
+
 .button:hover,
 .button:focus-visible {
   background-color: var(--clr-accent-300);
@@ -428,6 +436,7 @@ body {
 
 .footer-nav {
   columns: 2;
+  gap: max(10vw, var(--size-700));
 }
 
 .footer-nav a {
@@ -439,9 +448,68 @@ body {
   color: var(--clr-accent-400);
 }
 
+.primary-footer-wrapper {
+  display: grid;
+  gap: var(--size-700);
+  grid-template-areas:
+    'form'
+    'nav'
+    'social-logo';
+}
+
+@media (min-width: 50em) {
+  .primary-footer-wrapper {
+    grid-template-areas: 'social-logo nav form';
+  }
+}
+
+
+.primary-footer-social-icon {
+  grid-area: social-logo;
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--size-700);
+  align-items: center;
+}
+
+.primary-footer-nav {
+  grid-area: nav;
+}
+
+.primary-footer-form {
+  grid-area: form;
+
+  display: grid;
+  align-content: space-between;
+}
+
+.primary-footer-form form {
+  display: flex;
+  gap: var(--size-100);
+}
+
+.primary-footer-form input {
+  border-radius: 100vw;
+  outline: 0;
+  padding: var(--size-300) var(--size-400);
+}
+
+
+
+
+@media (max-width: 50em) {
+  .primary-footer-wrapper>* {
+    margin-inline: auto;
+  }
+
+}
+
+
+
+
 .social-list {
   display: flex;
-  gap: var(--size-300)
+  gap: var(--size-600)
 }
 
 .social-icon {
@@ -450,15 +518,30 @@ body {
   aspect-ratio: 1;
 }
 
-.social-list a:where(:hover, :focus) .social-icon {
-  fill: var(--clr-accent-400);
-}
 
 @media (min-width: 50em) {
+  .primary-footer-social-icon {
+    grid-area: social-logo;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .social-list {
+    display: flex;
+    gap: var(--size-300)
+  }
+
   .social-icon {
     width: var(--size-500);
   }
 }
+
+.social-list a:where(:hover, :focus) .social-icon {
+  fill: var(--clr-accent-400);
+}
+
 
 .cta {
   position: relative;
