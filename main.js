@@ -30,3 +30,15 @@ primaryHeader.addEventListener('click', (e) => {
 		toggleScrolling();
 	}
 });
+
+// slider
+const slider = new A11YSlider(document.querySelector('.slider'), {
+	adaptiveHeight: false,
+	dots: true,
+	arrows: false,
+	responsive: {
+		641: {
+			dots: false,
+		},
+	},
+});
