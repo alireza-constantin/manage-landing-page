@@ -36,6 +36,8 @@ const slider = new A11YSlider(document.querySelector('.slider'), {
 	adaptiveHeight: false,
 	dots: true,
 	arrows: false,
+	autoplay: true,
+	autoplaySpeed: 3700,
 	responsive: {
 		641: {
 			dots: false,

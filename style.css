@@ -725,6 +725,10 @@ button[data-shadow="none"] {
   background-color: var(--clr-accent-300);
 }
 
+.a11y-slider-autoplay {
+  display: none;
+}
+
 @media (max-width: 50em) {
   .slider>* {
     width: 60%;
