@@ -233,6 +233,10 @@ p[data-width='wide'] {
   margin-bottom: var(--size-700);
 }
 
+.mx-auto {
+  margin-inline: auto;
+}
+
 .container {
   --max-width: 1110px;
   --padding: 1rem;
@@ -382,6 +386,13 @@ button[data-shadow="none"] {
 }
 
 @media (max-width: 50em) {
+  .primary-header[data-overlay] {
+    position: relative;
+    z-index: 999;
+  }
+
+
+
   .primary-navigation {
     display: none;
     position: fixed;
@@ -410,7 +421,6 @@ button[data-shadow="none"] {
     content: "";
     position: fixed;
     inset: 0;
-
     background-image: linear-gradient(rgb(0 0 0 / 0), rgb(0 0 0 / 0.8));
   }
 
@@ -443,12 +453,19 @@ button[data-shadow="none"] {
     background-color: transparent;
     border: 0;
     padding: 0.5em;
+    width: 1.3rem;
+    aspect-ratio: 1;
     z-index: 100;
+    background-image: url('/images/icon-hamburger.svg');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
   }
 
-  .mobile-nav-toggle .icon-close {
-    display: none;
+  .primary-header[data-overlay] .mobile-nav-toggle {
+    background-image: url('/images/icon-close.svg');
   }
+
 }
 
 
@@ -603,6 +620,22 @@ button[data-shadow="none"] {
   }
 }
 
+
+@media (max-width: 300px) {
+  .social-icon {
+    width: var(--size-500);
+  }
+
+  .primary-footer-form form {
+    flex-direction: column;
+    gap: var(--size-400);
+  }
+
+  .primary-footer-form form button {
+    margin-inline: auto;
+  }
+}
+
 .social-list a:where(:hover, :focus) .social-icon {
   fill: var(--clr-accent-400);
 }
@@ -708,4 +741,34 @@ button[data-shadow="none"] {
   width: var(--size-900);
   margin-inline: auto;
   margin-bottom: -2rem;
+}
+
+@media (max-width: 50em) {
+  .hero_image {
+    order: -1;
+  }
+}
+
+
+/* background blobs */
+.hero_image::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 87%;
+  max-height: 70vh;
+  max-height: 70dvh;
+  aspect-ratio: 1 / 1.1;
+  z-index: -1;
+  background-image: url('/images/bg-tablet-pattern.svg');
+  background-repeat: no-repeat;
+  background-position: bottom left;
+}
+
+
+@media (min-width: 50em) {
+  .hero_image::before {
+    width: 45%;
+  }
 }

@@ -24,8 +24,8 @@ navToggle.addEventListener('click', () => {
 	toggleScrolling();
 });
 
-primaryHeader.addEventListener('click', (e) => {
-	if (e.target.contains(navToggle)) {
+document.documentElement.addEventListener('click', (e) => {
+	if (e.target.className === 'primary-header') {
 		removeAttribute();
 		toggleScrolling();
 	}
