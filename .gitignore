@@ -10,7 +10,6 @@ lerna-debug.log*
 text.html
 
 node_modules
-dist
 dist-ssr
 *.local
 
