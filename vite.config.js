@@ -1,5 +1,5 @@
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-	base: '/manage',
+	base: '/manage-landing-page',
 });
